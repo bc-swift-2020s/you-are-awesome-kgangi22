@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     var imageNumber = 0
+    var messages = ["You Are Awesome", "You Are Great", "You Are Fantastic", "You Are A Legend", "You Swifty", "You Make Me Smile", "I Think You're Magic"]
+    var messageNumber = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,13 @@ class ViewController: UIViewController {
         if imageNumber == 10 {
             imageNumber = 0
         }
+        
+        messageLabel.text = messages[messageNumber]
+        messageNumber = (messageNumber) + 1
+        if messageNumber == messages.count {
+            messageNumber = 0
+        }
+        
         
         
         
