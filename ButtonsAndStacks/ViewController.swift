@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var colorLabel: UILabel!
-    var colors: [UIColor] = [.red,.orange,.yellow,.green,.blue,.systemIndigo,.purple ]
+    var colors: [UIColor] = [.brown,.orange,.yellow,.green,.blue,.systemIndigo,.purple ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
