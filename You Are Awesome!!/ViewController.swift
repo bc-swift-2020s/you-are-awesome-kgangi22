@@ -8,12 +8,16 @@
 
 import UIKit
 
-var messages = ["You Are Awesome", "You Are Great", "You Are Fantastic", "You Are A Legend", "You Swifty", "You Make Me Smile", "I Think You're Magic", "When the Genius Bar Needs Help, They Call You"]
+
 
 class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    
+    var messageNumber = -1
+    var imageNumber = -1
+    let totalNumberOfImages = 9
     
     
     
@@ -26,14 +30,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func messageButtonPressed(_ sender: UIButton) {
-        let imageNumber = Int.random(in: 0...9)
-        print(imageNumber)
-        let imageName = "image" + String(imageNumber)
-        imageView.image = UIImage(named:imageName )
-        let messageNumber = Int.random(in: 0...messages.count-1)
-        messageLabel.text = messages[messageNumber]
-        print(messageNumber)
+        let messages = ["You Are Awesome", "You Are Great", "You Are Fantastic", "You Are A Legend", "You Swifty", "You Make Me Smile", "I Think You're Magic", "When the Genius Bar Needs Help, They Call You"]
         
+        var newMessageNumer: Int
+           repeat{
+               newMessageNumer = Int.random(in: 0...messages.count-1)
+           }while messageNumber == newMessageNumer
+        
+           messageNumber = newMessageNumer
+           messageLabel.text = messages[messageNumber]
+           
+           
+        var newImageNumber: Int
+           repeat{
+               newImageNumber = Int.random(in: 0...totalNumberOfImages)
+           } while imageNumber == newImageNumber
+           imageNumber = newImageNumber
+           imageView.image = UIImage(named: "image\(imageNumber)")
         
         
        
