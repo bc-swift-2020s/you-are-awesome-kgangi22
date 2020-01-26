@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     var messageNumber = -1
     var imageNumber = -1
     let totalNumberOfImages = 9
+    var audioPlayer = AVAudioPlayer()
     
     
     
@@ -47,6 +49,17 @@ class ViewController: UIViewController {
            } while imageNumber == newImageNumber
            imageNumber = newImageNumber
            imageView.image = UIImage(named: "image\(imageNumber)")
+        
+        if let sound = NSDataAsset(name: "sound0"){
+            do {
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.play()
+            }catch{
+                print("ERROR 123")
+            }
+        }else{
+            print("ERROR")
+        }
         
         
        
